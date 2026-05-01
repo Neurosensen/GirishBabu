@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "Transformations", href: "#works" },
-  { label: "Journal", href: "#philosophy" },
+  { label: "Home", sectionId: "home" },
+  { label: "Transformations", sectionId: "works" },
+  { label: "Journal", sectionId: "philosophy" },
 ];
+
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,18 +30,17 @@ export const Navbar = () => {
         }`}
       >
         {NAV.map((item) => (
-          <a
+          <button
             key={item.label}
-            href={item.href}
-            onClick={() => setActive(item.label)}
-            className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors ${
+            onClick={() => { setActive(item.label); scrollToSection(item.sectionId); }}
+            className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors cursor-pointer ${
               active === item.label
                 ? "text-text-primary bg-stroke/50"
                 : "text-muted hover:text-text-primary hover:bg-stroke/50"
             }`}
           >
             {item.label}
-          </a>
+          </button>
         ))}
 
         <span className="w-px h-5 bg-stroke mx-1" />

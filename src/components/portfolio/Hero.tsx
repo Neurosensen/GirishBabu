@@ -64,12 +64,12 @@ export const Hero = () => {
           </p>
 
           <div className="blur-in inline-flex flex-col sm:flex-row gap-4">
-            <a href="#works" className="group relative rounded-full p-[1.5px] hover:scale-105 transition-transform">
+            <button onClick={() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" })} className="group relative rounded-full p-[1.5px] hover:scale-105 transition-transform cursor-pointer">
               <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 accent-gradient-animated transition-opacity" style={{ inset: "-2px" }} />
               <span className="relative z-10 inline-flex items-center justify-center rounded-full bg-text-primary text-bg group-hover:bg-bg group-hover:text-text-primary text-sm px-7 py-3.5 font-medium transition-colors">
                 Start Your Journey
               </span>
-            </a>
+            </button>
 
             <a href="https://wa.me/918884466677" target="_blank" rel="noopener noreferrer" className="group relative rounded-full p-[1.5px] hover:scale-105 transition-transform">
               <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 accent-gradient-animated transition-opacity" style={{ inset: "-2px" }} />
